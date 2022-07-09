@@ -1,76 +1,40 @@
-import React from 'react';
-import VideoScreen from "../templates/components/screens/VideoScreen";
-
-import '../templates/styles/base.css'
-import {CenterContainer, MaxWidthContainer} from "../templates/components/styled/containers/FlexedContainers";
-import TitleCard from "../templates/components/cards/TitleCard";
-import CardHolder from "../templates/components/holders/card-holders/CardHolder";
-import {
-    tempLabel,
-    tempLeftImg,
-    tempRightImg,
-    tempTallImg,
-    tempTitle,
-    tempTitleVid,
-    tempWideImg
-} from "../config/TempConstants";
-import Breaker from "../templates/breakers/Breaker";
-
+import React, {useState} from 'react';
+import {FullScreen} from "../styled-components/FullScreen";
+import {BigCard} from "../styled-components/BigCard";
+import {CornerButton} from "../styled-components/CornerButton";
 
 const Home = () => {
+    const [clicked, setClicked] = useState<boolean>(false);
+
+    const handleClick = () => {
+        (clicked) ? setClicked(false) : setClicked(true);
+    }
 
     return (
-        <section>
-            <VideoScreen
-                logoText={'Lorem Ipsum'}
-                title={'Hello World!'}
-                label={'Lorem ipsum dolor sit amet, consectetur adipisicing elit architecto at deleniti varits doslando curry!'}
-                videoUrl={'https://assets.mixkit.co/videos/preview/mixkit-woman-spins-a-small-world-globe-21319-large.mp4'}
-                instruction={'scroll down'}
-                logoImgUrl={'https://www.clipartmax.com/png/full/279-2798685_png-logo-maker-online-real-clipart-and-vector-graphics-camera-logo-design.png'}
-                logoWidth={'5rem'}
-            />
-
-            <CenterContainer
-                marginY={'3rem'}
+        <FullScreen>
+            <BigCard
+                style={{
+                    animation: (clicked) ? 'turn .5s linear forwards' : 'around .5s linear forwards'
+                }}
             >
-                <MaxWidthContainer>
-
-                    <CardHolder
-                        tallCardTitle={tempTitle}
-                        tallCardLabel={tempLabel}
-                        tallCardBackImg={tempTallImg}
-
-                        wideCardTitle={tempTitle}
-                        wideCardLabel={tempLabel}
-                        wideCardBackImg={tempWideImg}
-
-                        leftCardTitle={tempTitle}
-                        leftCardLabel={tempLabel}
-                        leftBgImg={tempLeftImg}
-
-                        rightCardTitle={tempTitle}
-                        rightCardLabel={tempLabel}
-                        rightBgImg={tempRightImg}
-                    />
-
-                    <TitleCard
-                        title={tempTitle}
-                        label={tempLabel}
-                        backVideo={tempTitleVid}
-                    />
-
-                    <Breaker
-                        logoImgUrl={'https://cdn-icons-png.flaticon.com/512/7967/7967902.png'}
-                        title={'Lorem ipsum dolor sit amet, consectetur.'}
-                        label={tempLabel}
-                        buttonText={'check out'}
-                    />
-
-                </MaxWidthContainer>
-            </CenterContainer>
-
-        </section>
+                <h1>Host</h1>
+                <h3>{'Invite your friends'.toUpperCase()}</h3>
+                <h2>Host a room then send the link</h2>
+                <CornerButton
+                    onClick={handleClick}
+                >
+                    <h4>{'Create'.toUpperCase()}</h4>
+                </CornerButton>
+            </BigCard>
+            <BigCard>
+                <h1>Join</h1>
+                <h3>{'Meet your friends'.toUpperCase()}</h3>
+                <h2>Paste the link and choose a name</h2>
+                <CornerButton>
+                    <h4>{'Enter'.toUpperCase()}</h4>
+                </CornerButton>
+            </BigCard>
+        </FullScreen>
     );
 };
 

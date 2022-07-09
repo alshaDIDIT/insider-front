@@ -1,13 +1,10 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-import BasicFooter from "../templates/components/footer/BasicFooter";
-import CorneredNav from "../templates/components/nav-cornered/CorneredNav";
+import {Outlet} from "react-router-dom";
 
 export const Layout = () => {
     return (
         <div className="layout">
             <header>
-                <CorneredNav />
             </header>
             <section>
                 <main>
@@ -15,9 +12,6 @@ export const Layout = () => {
                 </main>
             </section>
             <footer>
-                <BasicFooter
-                    backColor={'#303a49'}
-                />
             </footer>
         </div>
     )
