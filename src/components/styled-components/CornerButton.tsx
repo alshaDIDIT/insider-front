@@ -6,7 +6,7 @@ export const CornerButton = styled.div`
   width: 19.9rem;
   height: 6rem;
   border: .02rem dotted #838383;
-  background-color: #608294;
+  //background-color: #608294;
 
   display: flex;
   justify-content: center;
@@ -21,8 +21,8 @@ export const CornerButton = styled.div`
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: .125rem;
-    
-    text-shadow: .08rem .08rem .02rem rgba(0,0,0,.5);
+
+    text-shadow: .08rem .08rem .02rem rgba(0, 0, 0, .5);
   }
 
   &:hover {
@@ -33,18 +33,12 @@ export const CornerButton = styled.div`
     }
 
     @keyframes button-hov {
-      0% {
-        background-color: #969696;
-      }
       100% {
-        background-color: #5b5b5b;
+        background-color: #707070;
       }
     }
 
     @keyframes bigger {
-      0% {
-        font-weight: 300;
-      }
       100% {
         font-weight: 800;
         font-size: 1.25rem;
